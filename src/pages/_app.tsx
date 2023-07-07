@@ -7,8 +7,8 @@ import { AppProps } from 'next/app';
 /* import logo from '../assets/logo.png'; */
 import theme from '../../theme'
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
-  console.log("component::",Component);
-  console.log("PAGEprops::",pageProps);
+  /* console.log("component::",Component);
+  console.log("PAGEprops::",pageProps); */
   
   return (
     <ChakraProvider theme={theme}>
@@ -21,7 +21,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
           maxWidth={'container.xl'}
           padding={4}>
           <VStack mb={6}>
-          <Image width={200}
+            <Image width={200}
               height={200}
               src={logo}
               alt="logo"
