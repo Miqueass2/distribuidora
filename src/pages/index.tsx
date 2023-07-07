@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState,useMemo } from "react";
 import api from "@/product/api";
 import { Product } from "@/product/types";
 import { GetStaticProps } from "next";
-import { Button, Grid, Stack, Text, Link, Image, Flex, useBreakpointValue } from "@chakra-ui/react";
+import { Button, Grid, Stack, Text, Link, Image, Flex, useBreakpointValue,Box } from "@chakra-ui/react";
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
 interface Props {
   products: Product[]
@@ -14,6 +14,7 @@ const IndexRoute: React.FC<Props> = ({ products }) => {
 
   //creamos el estado del carrito
   const [cart, setCart] = useState<Product[]>([]);
+  
   //si el componente se renderiza muchas veces no importa, usaremos useMemo
   //useMemo se ejecutara solo cuando cambie algo en cart
   const text = useMemo(() =>
@@ -56,10 +57,12 @@ const IndexRoute: React.FC<Props> = ({ products }) => {
               animate={{scale: 1}}
               exit={{scale: 0}}
               padding={4}
+              gap={2}
+              flexDirection="column"
               justifyContent={'center'}
               alignItems={'center'}
               position={"sticky"}
-              bottom={0}>
+              bottom={8}>
           <Button
             width='fit-content'
             size={buttonSize}
@@ -68,7 +71,18 @@ const IndexRoute: React.FC<Props> = ({ products }) => {
             href={`https://wa.me/3413052736?text=${encodeURIComponent(text)}`}
             leftIcon={<Image src="https://icongr.am/fontawesome/whatsapp.svg?size=32&color=ffffff" />}
             colorScheme="whatsapp">Finalizar pedido ({cart.length} productos) </Button>
+              <Button
+              width='fit-content'
+              size={buttonSize}
+              margin="auto"
+              colorScheme="red"
+              onClick={()=> setCart([])}
+              >
+                Borrar Pedido
+              </Button>
             </Flex>
+          
+            
           </AnimatePresence>
       }
       </Stack>
