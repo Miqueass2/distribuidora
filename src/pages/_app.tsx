@@ -7,8 +7,6 @@ import { AppProps } from 'next/app';
 /* import logo from '../assets/logo.png'; */
 import theme from '../../theme'
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
-  /* console.log("component::",Component);
-  console.log("PAGEprops::",pageProps); */
   
   return (
     <ChakraProvider theme={theme}>

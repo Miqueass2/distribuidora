@@ -28,7 +28,7 @@ export default {
                     })),
                   );
                 },
-               //error es una funcion que mos trara si la promosea no se cumplio, a traves de reject
+               //error es una funcion que mostrara si la promosea no se cumplio, a traves de reject
               error: (error) =>reject(error.message)
             })
         })
